@@ -1,0 +1,4 @@
+/rust/**/target/
+**/.idea/
+**/Cargo.lock
+**/*.iml

@@ -13,12 +13,12 @@ You can return the answer in any order.
 -10^9 <= target <= 10^9
  */
 
-use std::collections::HashMap;
+use hashbrown::HashMap;
 
-pub fn optimized(nums: Vec<i32>, target: i32) -> Vec<i32>
+pub fn optimized(nums: &[i32], target: i32) -> Vec<i32>
 {
     let mut complements = HashMap::new();
-    for (i, m) in nums.iter().enumerate() {
+    for (i, m) in nums.iter().enumerate(){
         if let Some(j) = complements.get(m) {
             return vec![*j as i32, i as i32];
         }
@@ -28,7 +28,7 @@ pub fn optimized(nums: Vec<i32>, target: i32) -> Vec<i32>
 }
 
 
-pub fn brute_force(nums: Vec<i32>, target: i32) -> Vec<i32>
+pub fn brute_force(nums: &[i32], target: i32) -> Vec<i32>
 {
     for (i, m) in nums.iter().enumerate() {
         for (j, n) in nums.iter().enumerate() {
@@ -45,33 +45,29 @@ pub fn brute_force(nums: Vec<i32>, target: i32) -> Vec<i32>
 
 #[cfg(test)]
 mod tests {
-    use std::fs::File;
-    use std::io::{BufRead, BufReader};
-    use std::str::FromStr;
-    use test::Bencher;
     use super::*;
 
     #[test]
     fn test_brute_force() {
-        let result = brute_force(vec![2, 7, 11, 15], 9);
+        let result = brute_force(vec![2, 7, 11, 15].as_slice(), 9);
         assert_eq!(result, vec![0, 1]);
 
-        let result = brute_force(vec![3, 2, 4], 6);
+        let result = brute_force(vec![3, 2, 4].as_slice(), 6);
         assert_eq!(result, vec![1, 2]);
 
-        let result = brute_force(vec![3, 3], 6);
+        let result = brute_force(vec![3, 3].as_slice(), 6);
         assert_eq!(result, vec![0, 1]);
     }
 
     #[test]
     fn example2() {
-        let result = optimized(vec![2, 7, 11, 15], 9);
+        let result = optimized(vec![2, 7, 11, 15].as_slice(), 9);
         assert_eq!(result, vec![0, 1]);
 
-        let result = optimized(vec![3, 2, 4], 6);
+        let result = optimized(vec![3, 2, 4].as_slice(), 6);
         assert_eq!(result, vec![1, 2]);
 
-        let result = optimized(vec![3, 3], 6);
+        let result = optimized(vec![3, 3].as_slice(), 6);
         assert_eq!(result, vec![0, 1]);
     }
 }

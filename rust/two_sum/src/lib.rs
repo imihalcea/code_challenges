@@ -14,6 +14,7 @@ You can return the answer in any order.
  */
 
 use hashbrown::HashMap;
+//use std::collections::HashMap;
 
 pub fn optimized(nums: &[i32], target: i32) -> Vec<i32>
 {

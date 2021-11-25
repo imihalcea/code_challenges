@@ -34,7 +34,7 @@ namespace CodeChallenges.IntegerInEnglish
         [Test]
         public void test()
         {
-            var p = new Solution.Packet(new[] { 1, 0, 0 }, 0);
+            var p = new Solution.Packet(new byte[] { 1, 0, 0 }, 0);
             Check.That(p.ToString()).IsEqualTo("One");
         }
     }

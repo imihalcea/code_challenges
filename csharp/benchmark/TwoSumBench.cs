@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.IO;
 using System.Linq;
 using BenchmarkDotNet.Attributes;
@@ -29,4 +29,4 @@ namespace CodeChallenges.Benchmark
         public int[] TwoSumBruteForce() => TwoSumChallenge.TwoSum.BruteForce(_nums, _target);
 
     }
-}
+}*/

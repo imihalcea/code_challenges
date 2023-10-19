@@ -1,4 +1,4 @@
-﻿using BenchmarkDotNet.Running;
+﻿/*using BenchmarkDotNet.Running;
 using CodeChallenges.Benchmark;
 
 public class Program
@@ -7,4 +7,4 @@ public class Program
     {
         var summary = BenchmarkRunner.Run<TwoSumBench>();
     }
-}
+}*/

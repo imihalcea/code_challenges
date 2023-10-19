@@ -14,4 +14,10 @@
     <ProjectReference Include="..\src\CodeChallenges.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="BenchmarkDotNet.Annotations">
+      <HintPath>..\..\..\..\..\.nuget\packages\benchmarkdotnet.annotations\0.13.1\lib\netstandard2.0\BenchmarkDotNet.Annotations.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

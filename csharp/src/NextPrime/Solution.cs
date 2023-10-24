@@ -4,17 +4,23 @@ namespace CodeChallenges.NextPrime;
 
 public class Solution
 {
-    public static long NextPrime(long l)
+    public static long NextPrime(long candidate)
     {
-        Console.WriteLine("try to find next prime after {0}", l);
-        var candidate = l;
-        while (!IsPrime(candidate)) candidate += 2;
-
+        do candidate = NextCandidate(candidate);
+        while (!IsPrime(candidate));
         return candidate;
     }
-    
+
+    private static long NextCandidate(long candidate)
+    {
+        return (candidate % 2) switch
+        {
+            0 => candidate + 1,
+            _ => candidate + 2
+        };
+    }
+
     public static bool IsPrime(long n){
-        Console.WriteLine("check is prime {0}",n);
         if(n < 2) return false;
         if(n == 2) return true;
         for(var d = 3; d * d <= n; d += 2){

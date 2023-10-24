@@ -5,12 +5,12 @@ namespace CodeChallenges.NextPrime;
 
 public class Tests
 {
-    [Test]
-    public void test()
+    [TestCase(7, 11)]
+    [TestCase(8, 11)]
+    [TestCase(11, 13)]
+    public void test(int n, int expected)
     {
-        var n = Solution.NextPrime(647788874263035981);
-        Console.WriteLine(n);
-        Assert.That(n, Is.EqualTo(42L));
-        
+        var actual = Solution.NextPrime(n);
+        Assert.AreEqual(expected, actual);
     }
 }

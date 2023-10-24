@@ -9,19 +9,14 @@ public class Solution
     public static string CommonDuplicates(string[] strArray)
     {
         var parts = strArray.Select(s => s.Split(":")).ToArray();
-        var counters = new Dictionary<(string,int), int>();
-        foreach (var part in parts)
+        var shortest = parts.Min(p => p.Length);
+        var common = new List<string>();
+        for (var i = 0; i < shortest; i++)
         {
-            for (var index = 0; index < part.Length; index++)
-            {
-                var p = (part[index], index);
-                if (counters.ContainsKey(p))
-                    counters[p]++;
-                else
-                    counters.Add(p, 1);
-            }
+            var s = parts.Select(p => p[i]).ToHashSet();
+            if (s.Count == 1)
+                common.Add(s.First());
         }
-        var commons = counters.Where(c => c.Value == parts.Length).Select(c => c.Key.Item1).ToArray();
-        return string.Join(":", commons);
+        return string.Join(":", common);
     }
 }
